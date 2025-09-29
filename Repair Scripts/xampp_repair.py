@@ -6,7 +6,7 @@ hahah = r"""
               ___) || |_| || |  | | | |   | |  
              |____/  \___/ |_|  |_||___|  |_|  
                                    
-        https://github.com/sumitx007/xampp-error-fixer
+        https://github.com/sumitpoudelxyz/xampp-error-fixer
 """
 print(hahah)
 import os
@@ -670,4 +670,5 @@ def main():
     input("Press Enter to exit...")
 
 if __name__ == "__main__":
+
     main()
