@@ -36,7 +36,7 @@ A powerful Windows tool that automatically detects and fixes common XAMPP issues
 ### Option 2: Run the EXE (Recommended)
  
 ```bash
-    git clone https://github.com/sumitx007/xampp-error-fixer
+    git clone https://github.com/sumitpoudelxyz/xampp-error-fixer
 ```
 
 ```bash
@@ -61,7 +61,7 @@ A powerful Windows tool that automatically detects and fixes common XAMPP issues
 - **Download or clone the folder again if not Downloaded before**
 1. **Open** `Command Prompt as Administrator`
 ```bash 
-    git clone https://github.com/sumitx007/xampp-error-fixer
+    git clone https://github.com/sumitpoudelxyz/xampp-error-fixer
 ```
 ```bash
     cd xampp-error-fixer
