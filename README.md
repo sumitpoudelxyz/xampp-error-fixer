@@ -1,124 +1,64 @@
-# 🔧 XAMPP Error Fixer
+# XAMPP Error Fixer
 
-A powerful Windows tool that automatically detects and fixes common XAMPP issues with just one click!
+A Windows utility for diagnosing common Apache and MySQL startup problems in XAMPP.
 
-## ✨ Core Features
+> **Safety note:** This project is under active improvement. Automatic MySQL data repair is disabled because the previous implementation could delete database files. The tool does not guarantee that it can repair every XAMPP installation.
 
-- **🔍 Auto-Detection**: Automatically finds your XAMPP installation
-- **🛠️ Smart Fixes**: Resolves MySQL "stopped unexpectedly" errors
-- **🚪 Port Management**: Handles Apache port conflicts (80, 443, etc.)
-- **📦 Safe Backups**: Creates backups before making any changes
-- **🎯 One-Click Solution**: Fix multiple issues with a single run
+## Current capabilities and limitations
 
-## 🚀 Quick Start
+- Detects XAMPP in the standard `C:\\xampp`, `D:\\xampp`, `E:\\xampp`, or `F:\\xampp` locations.
+- Checks Apache's configured listening ports and can suggest alternate ports.
+- Creates a timestamped backup of Apache's `httpd.conf` before changing it.
+- Does **not** kill processes by executable name or stop unrelated Apache/MySQL services.
+- Does **not** currently repair MySQL data files or run live service tests automatically.
 
+The project currently expects a standard Windows XAMPP installation. Custom install paths are not discovered automatically yet.
 
-### Option 1: Run Python Script (Make sure to have python and pip installed)-Recommended
-**Check if both python and pip is available or not**
-```bash
-    python --version && pip --version
-```
-**Install xamppfixer through pip**
-```bash
-    pip install xamppfixer
-```
-**Run it**
-```bash
-    xfix
-```
+## Requirements
 
-### Option 2: Run the EXE (Recommended)
- 
-```bash
-    git clone https://github.com/sumitpoudelxyz/xampp-error-fixer
-```
+- Windows 10 or 11
+- XAMPP installed in one of the standard locations above
+- Python 3.9 or newer to run the source script
 
-```bash
-    cd xampp-error-fixer/
-```
+## Run from source
 
-```bash
-    xampp_fixer.bat
-```
+1. Clone the repository:
+   ```powershell
+   git clone https://github.com/sumitpoudelxyz/xampp-error-fixer.git
+   cd xampp-error-fixer
+   ```
+2. Open Command Prompt or PowerShell as Administrator if you need to inspect or edit protected Apache configuration files.
+3. Run:
+   ```powershell
+   python "Repair Scripts\\xampp_repair.py"
+   ```
 
-1. **Open Terminal**
-2. **Follow** `the on-screen prompts`
-3. **Done!** `Your XAMPP should be working`
+The script may request elevated permissions for operations that need them. Review prompts carefully and keep your own backup of the complete XAMPP directory before making configuration changes.
 
+## Run the batch launcher
 
+The `xampp_fixer.bat` launcher currently expects a prebuilt executable at `Repair Scripts\\dist\\xampp_repair.exe`. If that executable is not present in your checkout, use the Python source instructions above. The batch launcher and packaged distribution are being aligned.
 
-### Option 3: Run Python Script (Make sure to have python installed)
-- **Python installation checker**
-```bash
-    python --version
-```
-- **Download or clone the folder again if not Downloaded before**
-1. **Open** `Command Prompt as Administrator`
-```bash 
-    git clone https://github.com/sumitpoudelxyz/xampp-error-fixer
-```
-```bash
-    cd xampp-error-fixer
-```
-```bash
-    cd "Repair Scripts"
-```
- **Run**: `python xampp_repair.py`
- ```bash
-    python xampp_repair.py
+## Tests
+
+The automated tests use temporary directories and mocked operating-system commands; they do not require an XAMPP installation and do not modify real database files.
+
+Install the test dependency and run:
+
+```powershell
+python -m pip install pytest
+python -m pytest -q
 ```
 
+## Reporting a problem
 
-## 🎯 What It Fixes
+Please open a GitHub issue and include:
 
-| Problem | Solution |
-|---------|----------|
-| ❌ MySQL won't start | Repairs database files |
-| ❌ Apache port conflicts | Finds free ports or stops conflicting services |
-| ❌ "MySQL stopped unexpectedly" | Restores from backup database |
-| ❌ Services keep crashing | Cleans corrupted configuration |
+- Windows version and XAMPP version
+- Whether XAMPP is installed in a standard location
+- The exact error message (remove passwords, tokens, and private paths)
+- Relevant Apache or MySQL log excerpts, with sensitive information removed
 
-## 📋 Requirements
+## Safety and project status
 
-- **Windows 10/11** (Windows 8.1+ supported)
-- **XAMPP installed** on C:, D:, E:, or F: drive
-
-## 🛡️ Safety Features
-
-- ✅ Creates automatic backups
-- ✅ Non-destructive fixes
-- ✅ Preserves your databases
-- ✅ Clean rollback options
-
-## 📖 How to Use
-
-1. **Close XAMPP** Control Panel completely
-2. **Run** `xampp_fixer.exe` 
-3. **Let it diagnose** your XAMPP installation
-4. **Choose fixes** when prompted
-5. **Open XAMPP** Control Panel and start services
-
-## 💡 Pro Tips
-
-- Close XAMPP Control Panel before running
-- Keep the generated backups safe
-- Test your websites after fixing
-
-## 🆘 Common Issues
-
-**"Access Denied"** → Run as Administrator  
-**"XAMPP Not Found"** → Install XAMPP in standard location  
-**"Port Still Busy"** → Restart your computer and try again
-
-## 📞 Support
-
-If you encounter any issues:
-1. Ensure XAMPP is properly installed
-2. Try restarting your computer
-3. Create an issue on GitHub with error details
-
----
-
-**⚡ Made for the XAMPP community**
-
-*Fix your XAMPP errors in seconds, not hours!*
+This is community-maintained software and is provided without a guarantee of successful repair. Do not run repair utilities against your only copy of important data. Back up databases and configuration files before troubleshooting.
