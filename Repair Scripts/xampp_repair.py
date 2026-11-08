@@ -131,49 +131,6 @@ def diagnose_mysql(xampp_path):
     except Exception as e:
         return {"status": "error", "issue": f"MySQL startup error: {str(e)}"}
 
-def test_services(xampp_path):
-    """Test if services start properly after fixes - with clean output"""
-    print("\n🧪 Testing services...")
-    
-    mysql_exe = os.path.join(xampp_path, "mysql", "bin", "mysqld.exe")
-    mysql_ini = os.path.join(xampp_path, "mysql", "bin", "my.ini")
-    apache_exe = os.path.join(xampp_path, "apache", "bin", "httpd.exe")
-    
-    results = {"mysql": False, "apache": False}
-    
-    # Test MySQL with suppressed output
-    try:
-        with open(os.devnull, 'w') as devnull:
-            subprocess.Popen([mysql_exe, f"--defaults-file={mysql_ini}", "--standalone"],
-                           cwd=os.path.dirname(mysql_exe),
-                           stdout=devnull, 
-                           stderr=devnull)
-        time.sleep(5)
-        if is_process_running("mysqld.exe"):
-            print("✅ MySQL: Working")
-            results["mysql"] = True
-        else:
-            print("❌ MySQL: Failed to start")
-    except:
-        print("❌ MySQL: Error during startup")
-    
-    # Test Apache with suppressed output
-    try:
-        with open(os.devnull, 'w') as devnull:
-            subprocess.Popen([apache_exe], 
-                           cwd=os.path.dirname(apache_exe),
-                           stdout=devnull, 
-                           stderr=devnull)
-        time.sleep(3)
-        if is_process_running("httpd.exe"):
-            print("✅ Apache: Working")
-            results["apache"] = True
-        else:
-            print("❌ Apache: Failed to start")
-    except:
-        print("❌ Apache: Error during startup")
-    
-    return results
 def diagnose_apache(xampp_path):
     """Diagnose Apache issues with intelligent port detection"""
     print("🔍 Checking Apache...")
